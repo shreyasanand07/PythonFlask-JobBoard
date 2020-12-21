@@ -5,9 +5,10 @@ from flask import Flask, render_template, g, request, redirect, url_for
 PATH = 'db/jobs.sqlite'
 
 app = Flask(__name__)
+#print(app)
 
 def open_connection():
-    connection = getattr(g, '_connection', None)
+    connection = getattr(g, '_connection', None) #obj, name, default
     if connection == None:
         connection = g._connection = sqlite3.connect(PATH)
     connection.row_factory = sqlite3.Row
